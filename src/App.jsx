@@ -27,10 +27,7 @@ function App() {
             setOpen(true);
           }}
         >
-          <img
-            src="./src/assets/cartelCampamento.png"
-            alt="campamento verano musical"
-          />
+          <img src="/cartelCampamento.png" alt="campamento verano musical" />
         </div>
       </div>
       {/* Modal Drawer */}
@@ -61,7 +58,7 @@ function App() {
 
           {/* Imagen centrada y responsiva */}
           <img
-            src="./src/assets/cartelCampamento.png" // cambia por la ruta real
+            src="/cartelCampamento.png" // cambia por la ruta real
             alt="Campamento Verano Musical"
             className="max-w-full max-h-full object-contain rounded shadow-lg"
           />
