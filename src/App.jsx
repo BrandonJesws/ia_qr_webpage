@@ -1,6 +1,8 @@
 import { useState } from "react";
+import ImageCarousel from "./components/ImageCarousel";
 function App() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(null);
+
   return (
     <div className="bg-[url('./assets/fondo.svg')] bg-no-repeat bg-cover h-screen">
       <div className="flex flex-row w-full">
@@ -20,7 +22,7 @@ function App() {
           </p>
         </div>
       </div>
-      <div className="w-full flex flex-row justify-center pt-10 px-10">
+      {/*<div className="w-full flex flex-row justify-center pt-10 px-10">
         <div
           className="max-w-96 rounded-lg overflow-hidden shadow-2xl shadow-neutral-400 hover:shadow-neutral-600 cursor-pointer"
           onClick={() => {
@@ -29,13 +31,19 @@ function App() {
         >
           <img src="/cartelCampamento.png" alt="campamento verano musical" />
         </div>
-      </div>
+      </div>*/}
+      <ImageCarousel
+        setOpen={(image) => {
+          setOpen(image);
+          console.log(image);
+        }}
+      />
       {/* Modal Drawer */}
-      {open && (
+      {!!open && (
         <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
           {/* Botón de cierre */}
           <button
-            onClick={() => setOpen(false)}
+            onClick={() => setOpen(null)}
             className="absolute top-4 right-4 text-white hover:text-gray-300"
           >
             <svg
@@ -58,7 +66,7 @@ function App() {
 
           {/* Imagen centrada y responsiva */}
           <img
-            src="/cartelCampamento.png" // cambia por la ruta real
+            src={open} // cambia por la ruta real
             alt="Campamento Verano Musical"
             className="max-w-full max-h-full object-contain rounded shadow-lg"
           />
